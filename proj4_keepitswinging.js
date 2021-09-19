@@ -84,6 +84,7 @@ function drawPendulumMovement() {
   drawConnectingLine();
   drawRedSquare();
   drawPendulumBlueSquare();
+  drawCoordinates();
 }
 
 function drawPendulumBlueSquare() {
@@ -97,7 +98,7 @@ function drawPendulumBlueSquare() {
   rotate(radians(angle))
   fill(0, 0, 255);
   rect(0, 0, SQUARE_SIZE, SQUARE_SIZE);
-  
+  resetMatrix();
 }
 
 function mousePressed() {
@@ -165,4 +166,13 @@ function drawLRBlueSquare() {
 function drawConnectingLine() {
   stroke(0, 0, 0);
   line(xPosition + SQUARE_SIZE / 2, yPosition + SQUARE_SIZE / 2, CANVAS_WIDTH / 2, SQUARE_SIZE / 2);
+}
+
+function drawCoordinates() {
+  let gap = 50;
+  fill(0);
+  textSize(12);
+  textStyle(NORMAL);
+  text('X: ' + round(xPosition, 4), xPosition, yPosition + SQUARE_SIZE + 35);
+  text('Y: ' + round(yPosition, 4), xPosition, yPosition + SQUARE_SIZE + 55);
 }
